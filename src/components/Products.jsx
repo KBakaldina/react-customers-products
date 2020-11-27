@@ -6,7 +6,7 @@ export default function Products() {
     const tableHeaders = { name: 'Name', price: 'Price' };
     const buttons = { isDefault: true };
 
-    return <TableConstructor pageHeader={pageHeader} buttons={buttons} tableHeaders={tableHeaders} data={customers} keyProperty='id'/>;
+    return <TableConstructor pageHeader={pageHeader} buttons={buttons} tableHeaders={tableHeaders} data={customers} keyProperty='id' />;
 }
 
 function createProduct(id, name, price) {

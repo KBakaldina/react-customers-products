@@ -4,5 +4,5 @@ import { useStyles } from '../common/functions/useStyles';
 
 export default function StartPage() {
     const classes = useStyles();
-    return <div className={classes.mainDiv}><PageHeader text='This is an test React App'/></div>;
+    return <div className={classes.mainDiv}><PageHeader text='This is a test React App' /></div>;
 }

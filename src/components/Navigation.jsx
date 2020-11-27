@@ -7,7 +7,7 @@ export default function Navigation() {
     return (
         <nav className={[classes.mainDiv, classes.navbar].join(' ')}>
             <ul className={classes.navbarUl}>
-                <NavigationLink path='/' text='Invoice App' isBold={true}/>
+                <NavigationLink path='/' text='Invoice App' isBold={true} />
                 <NavigationLink path='/products' text='Products' />
                 <NavigationLink path='/customers' text='Customers' />
             </ul>
