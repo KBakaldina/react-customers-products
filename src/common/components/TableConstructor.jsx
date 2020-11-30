@@ -32,7 +32,7 @@ export default function TableConstructor(props) {
                             {Object.keys(tableHeaders).map(key => <TableCell key={key}>{item[key]}</TableCell>)}
                             {buttons?.edit?.display || buttons?.delete?.display
                                 ?  (<TableCell className={classes.contentCenter}>
-                                        <ButtonElement display={buttons?.edit?.display} text='Edit' onClickFunction={buttons?.edit?.onClick} />
+                                        <ModalElement text='Edit' data={buttons?.edit} object={item}/>
                                         <ButtonElement display={buttons?.delete?.display} text='Delete' onClickFunction={buttons?.delete?.onClick} />
                                     </TableCell>)
                                 : null

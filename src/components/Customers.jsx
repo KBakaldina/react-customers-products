@@ -1,6 +1,7 @@
 import React from 'react';
 import TableConstructor from '../common/components/TableConstructor';
 import CreateCustomerForm from '../forms/CreateCustomer.form';
+import EditCustomerForm from '../forms/EditCustomer.form';
 
 export default class Customers extends React.Component {
     constructor(props) {
@@ -27,8 +28,8 @@ export default class Customers extends React.Component {
         },
         edit: {
             display: true,
-            onClick: () => { alert('Edit button clicked'); },
-            body: <p>Edit button</p>,
+            Body: EditCustomerForm,
+            handle: this.handleEdit.bind(this),
         },
         delete: {
             display: true,
@@ -41,15 +42,24 @@ export default class Customers extends React.Component {
         return { id, name, address, phone };
     }
 
-    handleCreate(newCustomer) {
-        const { name, address, phone } = newCustomer;
+    handleCreate(customer) {
+        const { name, address, phone } = customer;
         if (!name && !address && !phone) { return; }
 
-        newCustomer.id = this.state.maxId + 1;
+        customer.id = this.state.maxId + 1;
         this.setState({
-            customers: [newCustomer, ...this.state.customers],
-            maxId: newCustomer.id,
+            customers: [customer, ...this.state.customers],
+            maxId: customer.id,
         });
+    }
+
+    handleEdit(customer) {
+        const { id, name, address, phone } = customer;
+
+        if (!id) { console.error('No id provided during customer editing'); return; }
+        if (!name && !address && !phone) { console.error('Empty object'); return; }
+
+        this.setState({ customers: this.state.customers.map((item) => { return item.id === id ? customer : item; }) });
     }
 
     render() {

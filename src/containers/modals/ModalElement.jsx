@@ -4,7 +4,7 @@ import ButtonElement from '../../common/components/ButtonElement';
 import { useStyles } from '../../common/functions/useStyles';
 
 export default function ModalElement(props) {
-    const { text, data } = props;
+    const { text, data, object } = props;
     const { display, Body, handle } = data;
     const [open, setOpen] = React.useState(false);
     const classes = useStyles();
@@ -30,7 +30,7 @@ export default function ModalElement(props) {
                 BackdropProps={{ timeout: 500 }}
                 className={classes.modal}
             >
-                <Body close={handleClose} handle={handle}/>
+                <Body close={handleClose} handle={handle} object={object}/>
             </Modal>
         </span>
     );
