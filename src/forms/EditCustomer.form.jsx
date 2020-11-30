@@ -7,7 +7,7 @@ class EditCustomerForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.handleChange = this.handleChange.bind(this);
-		this.handleSave = this.handleSave.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 
 		const { id, name, address, phone } = this.props.object;
 		this.state = { id, name, address, phone };
@@ -17,7 +17,7 @@ class EditCustomerForm extends React.Component {
 		this.setState({ [event.target.name]: event.target.value });
 	}
 
-	handleSave = () => {
+	handleSubmit = () => {
 		this.props.handle(this.state);
 	}
 
@@ -27,7 +27,7 @@ class EditCustomerForm extends React.Component {
 			{ text: 'Address: ', name: 'address', value: this.state.address },
 			{ text: 'Phone: ', name: 'phone', value: this.state.phone },
 		]
-		return <Form header='Edit customer' onSubmit={this.handleSave} onChange={this.handleChange} close={this.props.close} items={items} classes={this.props.classes} />
+		return <Form header='Edit customer' onSubmit={this.handleSubmit} onChange={this.handleChange} close={this.props.close} items={items} classes={this.props.classes} />
 	}
 }
 

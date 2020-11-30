@@ -3,7 +3,6 @@ import Table from '@material-ui/core/Table';
 import { TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 import { useStyles } from '../functions/useStyles';
 import PageHeader from '../components/PageHeader';
-import ButtonElement from './ButtonElement';
 import ModalElement from '../../containers/modals/ModalElement';
 
 export default function TableConstructor(props) {
@@ -14,14 +13,14 @@ export default function TableConstructor(props) {
     return (
         <div className={classes.mainDiv}>
             <div>
-                <PageHeader text={pageHeader} />
+                <PageHeader text={pageHeader}/>
                 <ModalElement text='Create' data={buttons?.create} />
             </div>
             <Table size='small'>
                 <TableHead className={classes.tableHead}>
                     <TableRow>
-                        <TableCell className={classes.bold}>#</TableCell>
-                        {Object.keys(tableHeaders).map((key, index) => <TableCell key={index} className={classes.bold}>{tableHeaders[key]}</TableCell>)}
+                        <TableCell>#</TableCell>
+                        {Object.keys(tableHeaders).map((key, index) => <TableCell key={index}>{tableHeaders[key]}</TableCell>)}
                         {buttons?.edit?.display || buttons?.delete?.display ? <TableCell></TableCell> : null}
                     </TableRow>
                 </TableHead>
@@ -33,7 +32,7 @@ export default function TableConstructor(props) {
                             {buttons?.edit?.display || buttons?.delete?.display
                                 ?  (<TableCell className={classes.contentCenter}>
                                         <ModalElement text='Edit' data={buttons?.edit} object={item}/>
-                                        <ButtonElement display={buttons?.delete?.display} text='Delete' onClickFunction={buttons?.delete?.onClick} />
+                                        <ModalElement text='Delete' data={buttons?.delete} object={item}/>
                                     </TableCell>)
                                 : null
                             }

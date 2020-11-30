@@ -2,6 +2,7 @@ import React from 'react';
 import TableConstructor from '../common/components/TableConstructor';
 import CreateCustomerForm from '../forms/CreateCustomer.form';
 import EditCustomerForm from '../forms/EditCustomer.form';
+import DeleteCustomerForm from '../forms/DeleteCustomer.form';
 
 export default class Customers extends React.Component {
     constructor(props) {
@@ -33,8 +34,8 @@ export default class Customers extends React.Component {
         },
         delete: {
             display: true,
-            onClick: () => { alert('Delete button clicked'); },
-            body: <p>Delete button</p>,
+            Body: DeleteCustomerForm,
+            handle: this.handleDelete.bind(this),
         },
     };
     
@@ -59,7 +60,12 @@ export default class Customers extends React.Component {
         if (!id) { console.error('No id provided during customer editing'); return; }
         if (!name && !address && !phone) { console.error('Empty object'); return; }
 
-        this.setState({ customers: this.state.customers.map((item) => { return item.id === id ? customer : item; }) });
+        this.setState({ customers: this.state.customers.map(item => { return item.id === id ? customer : item; }) });
+    }
+
+    handleDelete(id) {
+        if (!id) { console.error('No id provided during customer deleting'); return; }
+        this.setState({ customers: this.state.customers.filter(item => item.id !== id) });
     }
 
     render() {
