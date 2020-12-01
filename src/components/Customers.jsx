@@ -45,7 +45,7 @@ export default class Customers extends React.Component {
 
     handleCreate(customer) {
         const { name, address, phone } = customer;
-        if (!name && !address && !phone) { return; }
+        if (!name && !address && !phone) { console.error('Error during creating a new customer: Empty object'); return; }
 
         customer.id = this.state.maxId + 1;
         this.setState({
@@ -58,7 +58,7 @@ export default class Customers extends React.Component {
         const { id, name, address, phone } = customer;
 
         if (!id) { console.error('No id provided during customer editing'); return; }
-        if (!name && !address && !phone) { console.error('Empty object'); return; }
+        if (!name && !address && !phone) { console.error('Error during customer editing: Empty object'); return; }
 
         this.setState({ customers: this.state.customers.map(item => { return item.id === id ? customer : item; }) });
     }

@@ -13,7 +13,7 @@ export default function TableConstructor(props) {
     return (
         <div className={classes.mainDiv}>
             <div>
-                <PageHeader text={pageHeader}/>
+                <PageHeader text={pageHeader} />
                 <ModalElement text='Create' data={buttons?.create} />
             </div>
             <Table size='small'>
@@ -31,8 +31,8 @@ export default function TableConstructor(props) {
                             {Object.keys(tableHeaders).map(key => <TableCell key={key}>{item[key]}</TableCell>)}
                             {buttons?.edit?.display || buttons?.delete?.display
                                 ?  (<TableCell className={classes.contentCenter}>
-                                        <ModalElement text='Edit' data={buttons?.edit} object={item}/>
-                                        <ModalElement text='Delete' data={buttons?.delete} object={item}/>
+                                        <ModalElement text='Edit' data={buttons?.edit} object={item} />
+                                        <ModalElement text='Delete' data={buttons?.delete} object={item} />
                                     </TableCell>)
                                 : null
                             }

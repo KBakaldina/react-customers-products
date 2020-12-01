@@ -26,7 +26,7 @@ class EditCustomerForm extends React.Component {
 			{ text: 'Name: ', name: 'name', value: this.state.name },
 			{ text: 'Address: ', name: 'address', value: this.state.address },
 			{ text: 'Phone: ', name: 'phone', value: this.state.phone },
-		]
+		];
 		return <Form header='Edit customer' onSubmit={this.handleSubmit} onChange={this.handleChange} close={this.props.close} items={items} classes={this.props.classes} />
 	}
 }

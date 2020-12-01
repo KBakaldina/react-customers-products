@@ -19,7 +19,7 @@ export default function ModalElement(props) {
 
     return (
         <span className={classes.paddingLeft}>
-            <ButtonElement display={display} text={text} onClickFunction={handleOpen}/>
+            <ButtonElement display={display} text={text} onClickFunction={handleOpen} />
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -30,7 +30,7 @@ export default function ModalElement(props) {
                 BackdropProps={{ timeout: 500 }}
                 className={classes.modal}
             >
-                <Body close={handleClose} handle={handle} object={object}/>
+                <Body close={handleClose} handle={handle} object={object} />
             </Modal>
         </span>
     );
